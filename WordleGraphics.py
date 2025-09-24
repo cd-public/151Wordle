@@ -101,6 +101,8 @@ class WordleGWindow(GWindow):
             return msg
 
         def key_action(e):
+            if self._row < 0 or self._row >= N_ROWS:
+                return
             if isinstance(e, str):
                 letter = e.upper()
             else:
@@ -110,7 +112,7 @@ class WordleGWindow(GWindow):
                 if self._row < N_ROWS and self._col > 0:
                     self._col -= 1
                     sq = self._grid[self._row][self._col]
-                    sq.set_square_label(" ")
+                    sq.set_square_letter("")
             elif letter == "<RETURN>" or letter == "<ENTER>":
                 self.show_message("")
                 for fn in self._listeners:
@@ -119,7 +121,7 @@ class WordleGWindow(GWindow):
                 self.show_message("")
                 if self._row < N_ROWS and self._col < N_COLS:
                     sq = self._grid[self._row][self._col]
-                    sq.set_square_label(letter)
+                    sq.set_square_letter(letter)
                     self._col += 1
 
         def click_action(e):
@@ -147,33 +149,42 @@ class WordleGWindow(GWindow):
         self._row = 0
         self._col = 0
 
-    def get_square_label(self, row, col):
-        return self._grid[row][col].get_square_label()
+    def get_square_letter(self, row, col):
+        """Returns the letter in the specified row and column."""
+        return self._grid[row][col].get_square_letter()
 
-    def set_square_label(self, row, col, letter):
-        self._grid[row][col].set_square_label(letter)
+    def set_square_letter(self, row, col, letter):
+        """Sets the letter in the specified row and column."""
+        self._grid[row][col].set_square_letter(letter.upper())
 
-    def get_square_state(self, row, col):
-        return self._grid[row][col].get_state()
+    def get_square_color(self, row, col):
+        """Returns the background color of the specified row and column."""
+        return self._grid[row][col].get_color()
 
-    def set_square_state(self, row, col, state):
-        self._grid[row][col].set_state(state)
+    def set_square_color(self, row, col, color):
+        """Sets the background color of the specified row and column."""
+        self._grid[row][col].set_color(color)
 
-    def get_key_state(self, letter):
-        return self._keys[letter].get_state()
+    def get_key_color(self, letter):
+        """Returns the background color of the specified key."""
+        return self._keys[letter.upper()].get_color()
 
-    def set_key_state(self, letter, state):
-        self._keys[letter].set_state(state)
+    def set_key_color(self, letter, color):
+        """Sets the background color of the specified key."""
+        self._keys[letter.upper()].set_color(color)
 
     def get_current_row(self):
+        """Returns the current row number."""
         return self._row
 
     def set_current_row(self, row):
+        """Sets the current row number."""
         self._row = row
-        self._col = 0
-        for col in range(N_COLS):
-            self.set_square_label(row, col, "")
-            self.set_square_state(row, col, "UNKNOWN")
+        if row >= 0 and row < N_ROWS:
+            self._col = 0
+            for col in range(N_COLS):
+                self.set_square_letter(row, col, "")
+                self.set_square_color(row, col, UNKNOWN_COLOR)
 
     def add_enter_listener(self, fn):
         self._listeners.append(fn)
@@ -188,8 +199,8 @@ class WordleSquare(GCompound):
         GCompound.__init__(self)
         x = (GWINDOW_WIDTH - BOARD_WIDTH) / 2 + col * SQUARE_DELTA
         y = TOP_MARGIN + row * SQUARE_DELTA
-        self._letter = " "
-        self._state = "UNKNOWN"
+        self._letter = ""
+        self._color = UNKNOWN_COLOR
         self._frame = GRect(SQUARE_SIZE, SQUARE_SIZE)
         self._frame.set_filled(True)
         self._frame.set_fill_color("White")
@@ -199,34 +210,25 @@ class WordleSquare(GCompound):
         self.add(self._label)
         self.set_location(x, y)
 
-    def get_square_label(self):
+    def get_square_letter(self):
         return self._letter
 
-    def set_square_label(self, letter):
+    def set_square_letter(self, letter):
         self._letter = letter
-        self._label.set_label(letter)
+        self._label.set_label(letter.upper())
         x = (SQUARE_SIZE - self._label.get_width()) / 2
         y = (SQUARE_SIZE + ASCENT_FRACTION * self._label.get_ascent()) / 2
         self._label.set_location(x, y)
 
-    def get_state(self):
-        return self._state
+    def get_color(self):
+        return self._color
 
-    def set_state(self, state):
-        state = state.upper()
-        self._state = state
+    def set_color(self, color):
+        self._color = color
         fg = "White"
-        if state == "UNKNOWN":
+        if color.upper() == UNKNOWN_COLOR:
             fg = "Black"
-            bg = "White"
-        elif state == "CORRECT":
-            bg = CORRECT_COLOR
-        elif state == "PRESENT":
-            bg = PRESENT_COLOR
-        elif state == "MISSING":
-            bg = MISSING_COLOR
-        else:
-            raise ValueError("Illegal letter state " + str(state))
+        bg = color
         self._frame.set_fill_color(bg)
         self._label.set_color(fg)
 
@@ -239,7 +241,7 @@ class WordleKey(GCompound):
             self._key = key
         else:
             self._key = "<" + key + ">"
-        self._state = "UNKNOWN"
+        self._color = UNKNOWN_COLOR
         font = KEY_FONT
         if key == "ENTER":
             font = ENTER_FONT
@@ -261,23 +263,15 @@ class WordleKey(GCompound):
     def get_frame(self):
         return self._frame
         
-    def get_state(self):
-        return self._state
+    def get_color(self):
+        return self._color
 
-    def set_state(self, state):
-        self._state = state
+    def set_color(self, color):
+        self._color = color
         fg = "White"
-        if state == "UNKNOWN":
+        if color == UNKNOWN_COLOR:
             fg = "Black"
-            bg = "White"
-        elif state == "CORRECT":
-            bg = CORRECT_COLOR
-        elif state == "PRESENT":
-            bg = PRESENT_COLOR
-        elif state == "MISSING":
-            bg = MISSING_COLOR
-        else:
-            raise ValueError("Illegal letter state " + str(state))
+        bg = color
         self._frame.set_fill_color(bg)
         self._label.set_color(fg)
 

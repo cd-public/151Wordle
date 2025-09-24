@@ -125,8 +125,7 @@ class GWindow(object):
         self.set_window_title(_get_program_name())
         self._event_loop_started = False
         self._active = True
-        if not spyder_flag:
-            atexit.register(self._start_event_loop)
+        atexit.register(self._start_event_loop)
 
     def __eq__(self, other):
         if isinstance(other, GWindow):

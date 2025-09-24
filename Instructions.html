@@ -1,42 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>Project 1: Wordle</title>
+		<title>Midterm 1: Mini</title>
 		<style>
-        body {
-            font-size: 1.5em ;
-        }
-		.page {
-			width: 11.5in ;
-			margin: auto ;
-		}
-		.page_outer {
-			width: 11in;
-			box-shadow: -.1in -.1in .25in darkgray, .1in .1in .25in gray;
-			position: relative ;
-		}
-		.page_inner{
-			margin: 1in;  
-			margin-top: .5in;  
-		}
-		th {
-			text-align: center ;
-            height: 1.5em;
-            width: 1.5em;
-            font-weight:normal;
-		}
-		td {
-            border: solid ;
-            height: 1.5em;
-            width: 1.5em;
-            
-		}
-        .details, .show, .hide:target {
-            display: none;
-        }
-        .hide:target + .show, .hide:target ~ .details {
-            display: block;
-        }
+            body {
+                font-size: 1.5em ;
+            }
+            .page {
+                width: 11.5in ;
+                margin: auto ;
+            }
+            .page_outer {
+                width: 11in;
+                box-shadow: -.1in -.1in .25in darkgray, .1in .1in .25in gray;
+                position: relative ;
+            }
+            .page_inner{
+                margin: 1in;  
+                margin-top: .5in;  
+            }
+            th {
+                text-align: center ;
+                height: 1.5em;
+                width: 1.5em;
+                font-weight:normal;
+            }
+            td {
+                border: solid ;
+                height: 1.5em;
+                width: 1.5em;
+                
+            }
+            .details, .show, .hide:target {
+                display: none;
+            }
+            .hide:target + .show, .hide:target ~ .details {
+                display: block;
+            }
+            .c {
+                background-color: #66BB66
+            }
+            .p {
+                background-color: #CCBB66 
+            }
+            .m {
+                background-color: #999999 
+            }
+            .u {
+                background-color: #FFFFFF 
+            }
 		</style>
 		<style type="text/css" media="print">
 			.page {
@@ -59,24 +71,22 @@
 			<div class="page_outer">
 				<div style="height:.25in;"> <!-- Vertical space adjuster for box shadow --></div>
 				<div class="page_inner"><center>
-					<h1>Project 1: Wordle</h1>
-                    <h3>Due: Monday, 29 September, 11:59 PM</h3>
-                    <p><a href="https://jrembold.github.io/Website_Backup/class_files/cs151/Projects/Project_Wordle/">Prof. Jed Rembold's alternate instructions</a>
+					<h1>Midterm 1: Mini</h1>
+                    <h3>90 minutes. Individual. Open note.</h3>
                     </center>
                     <hr>
                     <div>
                         <a id="hide1" href="#hide1" class="hide"><h3>A. Starting Template [Show]</h3></a>
                         <a id="show1" href="#show1" class="show"><h3>A. Starting Template [Hide]</h3></a>
                         <div class="details">
-                            <p>This project is composed of 5 milestones, each roughly equivalent to a problem or part of a problem on a problem set. Distinct from problem sets, each of the problems works together to create one, single, more expansive assignment. Before getting the milestones, there are a few introductory remarks.
-                            <p>Additionally, this project will involve working with a "library" not unlike <code>karel.py</code> called <code>WordleGraphics.py</code>. This project specification will specify how to interact with this file.
-                            <p>There is an <a href="https://willamette.edu/~esroberts/NiftyAssignments-2022/demos/Wordle.html">Web Demo</a>. It seems a bit buggy to me in Firefox but should give an idea of the finished project.
+                            <p>This midterm is composed of 5 milestones, each roughly equivalent to a question on a practice midterm. Each of the problems works together to create one, single, more expansive assignment. Before getting the milestones, there are a few introductory remarks.
+                            <p>Additionally, this project will involve working with <code>WordleGraphics.py</code>. You should already be familiar from Project 1: Wordle. For your reference, this project specification will specify how to interact with this file, but you may also consult your code from Project 1: Wordle.
                             <hr>
                             <h2>Files:</h2>
                             <ul>
                                 <li>Update (only) this file:
                                 <ul>
-                                    <li><code>Wordle.py</code></li>
+                                    <li><code>Mini.py</code></li>
                                 </ul>
                                 <li>You will also need:
                                 <ul>
@@ -85,51 +95,143 @@
                                     <li><code>english.py</code></li>
                                 </ul>
                             </ul>
-                            <p>The template file "Wordle.py" is initially as follows:
+                            <p>The template file "Mini.py" is initially as follows:
                             <hr>
-                            <pre style="font-size:larger"><code >from WordleGraphics import *  # WordleGWindow, N_ROWS, ...
-from english import * # ENGLISH_WORDS, is_english_word
-import random
+                            <pre style="font-size:larger"><code ># N_ROWS is 6 and N_COLS is 5
+from WordleGraphics import WordleGWindow, N_ROWS, N_COLS
 
-def wordle():
-    # The main function to play the Wordle game.
+# FIVES and SIXES are all 5-letter and 6-letter English words
+from english import FIVES, SIXES
 
-    def enter_action():
-        # What should happen when RETURN/ENTER is pressed.
-        gw.show_message("You need to implement this method")
+def row_word(n):
+    return ""
 
+def col_word(n):
+    return ""
 
-    gw = WordleGWindow()
-    gw.add_enter_listener(enter_action)
+def row_color(n, c):
+    pass
 
+def col_color(n, c):
+    pass
 
+def valid_prefix(prefix):
+    return False
 
+def enter_action():
+    pass
 
-# Startup boilerplate
-if __name__ == "__main__":
-    wordle()</code></pre><hr>
-                            <p>You should be able to run <code>Wordle.py</code> as soon as you download the code. It will create a window, not unlikely Karel, with letter boxes and a keyboard. You can test out typing via keyboard or the onscreen keys, such as by typing <code>RATES</code>.<br><br>
+gw = WordleGWindow()
+gw.add_enter_listener(enter_action)</code></pre><hr>
+                            <p>You should be able to run <code>Mini.py</code> as soon as you download the code. It will create a window, not unlike Wordle, with letter boxes and a keyboard. You can test out typing via keyboard or the onscreen keys, such as by typing <code>RATES</code>.<br><br>
                             <img src="data:image/png;base64,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" width="100%">
                             
                         </div>
                     </div>
                     <hr>
                     <div>
-                        <a id="hide2" href="#hide2" class="hide"><h3>B. What is Wordle [Show]</h3></a>
-                        <a id="show2" href="#show2" class="show"><h3>B. What is Wordle [Hide]</h3></a>
+                        <a id="hide2" href="#hide2" class="hide"><h3>B. What is Mini? [Show]</h3></a>
+                        <a id="show2" href="#show2" class="show"><h3>B. What is Mini? [Hide]</h3></a>
                         <div class="details">
                                                 
-                            <p>Wordle is a word guessing game with six guesses. Type in a word (that must in the list of words provided), hit <code>RETURN</code>/<code>ENTER</code>, and the game gives you information about how close your guess is by coloring the background of the letters. 
+                            <p>Mini is inspired by the "Mini" crossword, where all horizontal rows and vertical columns in a grid for valid words. The Mini "game" is played by typing in a word for a horizontal row (that must in the list of words provided), hit <code>RETURN</code>/<code>ENTER</code>, and the game will check if each vertical column contains the beginining (perhaps a "valid prefix") of a six letter word.
                             <ul>
-                                <li>If the guessed letter and answer letter are the same, colors the letter green (<code>CORRECT_COLOR</code>). 
-                                <li>If the guessed letter is in the answer, colors the letter yellow (<code>PRESENT_COLOR</code>)
-                                <li>If the guessed letter is not in the answer, colored the letter gray (<code>MISSING_COLOR</code>)
+                                <li>If the guessed "row" word is valid, and all columns contain valid prefixes, the row is colored <code>CORRECT_COLOR</code>. The current row, that is, where text goes when typing, is updated to the next row. 
+                                <li>If the guessed "row" word is valid, yet one or more column does not contain a valid prefix, columns that do not contain valid prefixes are colored in <code>PRESENT_COLOR</code>. The current row, that is, where text goes when typing, is not updated and the player may use <code>BACKSPACE</code>/<code>DELETE</code> to try other words.
+                                <li>If the guessed "row" word is not in the word list, color the "row" word in <code>MISSING_COLOR</code>. Again, the current row is not updated.
                             </ul>
-                            <p>For example, suppose the answer is <code>RELIC</code> and the guess is <code>RATES</code>. The <code>R</code> is in the correct position, and the word contains an <code>E</code>, but not in the position guessed. The hidden word does not contain the letters <code>T</code>, <code>A</code>, and <code>S</code>. Wordle reports that information by changing the background color of the squares like this:</p>
-                            <center><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPCEtLSBUaGlzIGZpbGUgd2FzIGdlbmVyYXRlZCBieSBkdmlzdmdtIDMuMS4xIC0tPgo8c3ZnIHZlcnNpb249JzEuMScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluaycgd2lkdGg9JzE1MS42OTU4cHQnIGhlaWdodD0nMjguNzQ2MnB0JyB2aWV3Qm94PSctNzIuMDAwMDUgLTcyLjAwMDA1IDE1MS42OTU4IDI4Ljc0NjInPgo8ZGVmcz4KPGZvbnQgaWQ9J2Ntc3NieDEwJyBob3Jpei1hZHYteD0nMCc+Cjxmb250LWZhY2UgZm9udC1mYW1pbHk9J2Ntc3NieDEwJyB1bml0cy1wZXItZW09JzEwMDAnIGFzY2VudD0nNzgwJyBkZXNjZW50PScyNTAnLz4KPGdseXBoIHVuaWNvZGU9J0EnIGhvcml6LWFkdi14PSc3MzMnIHZlcnQtYWR2LXk9JzczMycgZ2x5cGgtbmFtZT0nQScgZD0nTTQ3NCA2NTFDNDU5IDY5NCA0MzAgNjk0IDQxMCA2OTRIMzIyQzMwMiA2OTQgMjczIDY5NCAyNTggNjUxTDQ3IDQ3QzQyIDM0IDQyIDMyIDQyIDI3QzQyIDAgNjcgMCA4MSAwSDExN0MxMzUgMCAxNjYgMCAxODAgNDBMMjE5IDE1MUg0OTZMNTMwIDU1QzU0MiAyMCA1NDkgMCA1OTcgMEg2NTFDNjY1IDAgNjkwIDAgNjkwIDI3QzY5MCAzMiA2OTAgMzQgNjg1IDQ3TDQ3NCA2NTFaTTMyMSA0NDlDMzM2IDQ5MyAzNDkgNTMxIDM1NyA1NjdIMzU4QzM2MyA1NDMgMzYzIDU0MSAzNzEgNTE4TDQ2NiAyMzdIMjQ5TDMyMSA0NDlaJy8+CjxnbHlwaCB1bmljb2RlPSdFJyBob3Jpei1hZHYteD0nNjQxJyB2ZXJ0LWFkdi15PSc2NDEnIGdseXBoLW5hbWU9J0UnIGQ9J00yMzggMzExSDUwMUM1MzIgMzExIDU0OSAzMTggNTQ5IDM1OEM1NDkgMzk1IDUzNiA0MDUgNTAxIDQwNUgyMzhWNTkwSDI4N0MzNjUgNTkwIDQ0NCA1ODcgNTIyIDU4N0M1NTcgNTg3IDU4MCA1ODcgNTgwIDYzNVY2NDNDNTgwIDY3NSA1NzMgNjkxIDUzMiA2OTFIMTM5QzEwMyA2OTEgOTEgNjgwIDkxIDY0M1Y0OEM5MSAxMiAxMDIgMCAxMzkgMEg1NDdDNTg1IDAgNTk1IDEzIDU5NSA0OFY2MkM1OTUgMTEwIDU3MiAxMTAgNTM5IDExMEM0ODcgMTEwIDQzNiAxMDggMzg0IDEwOEMzNTkgMTA4IDI1NiAxMDcgMjM4IDEwNlYzMTFaJy8+CjxnbHlwaCB1bmljb2RlPSdSJyBob3Jpei1hZHYteD0nNzAyJyB2ZXJ0LWFkdi15PSc3MDInIGdseXBoLW5hbWU9J1InIGQ9J000ODMgMzIwQzU0NiAzMzUgNjQxIDM3MyA2NDEgNDk3QzY0MSA2OTQgNDI0IDY5NCAzNzkgNjk0SDEzOUMxMDMgNjk0IDkxIDY4MyA5MSA2NDZWNDhDOTEgMTIgMTAyIDAgMTM5IDBIMTg3QzIyNSAwIDIzNSAxMyAyMzUgNDhWMzExSDM0Nkw1MTAgMjRDNTI0IDAgNTM1IDAgNTU3IDBINjE2QzYzNiAwIDY1MyAwIDY1MyAzMEw0ODMgMzIwWk0yMzUgMzgzVjYwOEgzNjVDNDgxIDYwOCA1MDIgNTYyIDUwMiA0OTZDNTAyIDQzNyA0ODggMzgzIDM2NSAzODNIMjM1WicvPgo8Z2x5cGggdW5pY29kZT0nUycgaG9yaXotYWR2LXg9JzYxMScgdmVydC1hZHYteT0nNjExJyBnbHlwaC1uYW1lPSdTJyBkPSdNMjcwIDQ0MUMyNDggNDQ2IDE4NiA0NjkgMTg2IDUyNkMxODYgNjExIDI3MSA2MTMgMzA1IDYxM0MzNjEgNjEzIDQxMSA2MDAgNDYwIDU1MkM0NzYgNTM3IDQ3NyA1MzYgNDgxIDUzNkM0ODcgNTM2IDQ5MiA1MzkgNDk1IDU1NEw1MTAgNjQxQzUxMiA2NDkgNTEyIDY1MSA1MTIgNjU0QzUxMiA2NjIgNTExIDY2MyA0ODYgNjc2QzQxNSA3MTEgMzU2IDcxNiAzMDUgNzE2QzIxNiA3MTYgNjEgNjk1IDYxIDUwOEM2MSA0MzcgOTggMzkxIDExNyAzNzFDMTY4IDMxOSAyMTUgMzA5IDI5MyAyOTFDMzQ5IDI3OCAzNzEgMjczIDM5MyAyNTNDNDAzIDI0MyA0MjQgMjIyIDQyNCAxODRDNDI0IDkwIDMzOCA4NyAzMDUgODdDMjIxIDg3IDE0OCAxMjEgOTggMTY2Qzg2IDE3OCA4NCAxNzggODAgMTc4Qzc0IDE3OCA2OSAxNzUgNjYgMTYwTDUxIDczQzQ5IDY1IDQ5IDYzIDQ5IDYwQzQ5IDM5IDE1MyAzIDE1OCAxQzIyNS0yMCAyNzktMjIgMzA1LTIyQzQ1NS0yMiA1NDkgNDUgNTQ5IDIwMEM1NDkgMzEyIDQ2NiAzOTYgMzY2IDQxOUwyNzAgNDQxWicvPgo8Z2x5cGggdW5pY29kZT0nVCcgaG9yaXotYWR2LXg9JzczMycgdmVydC1hZHYteT0nNzMzJyBnbHlwaC1uYW1lPSdUJyBkPSdNMjkzIDU4N1Y0OEMyOTMgMTIgMzA0IDAgMzQxIDBIMzkyQzQzMCAwIDQ0MCAxMyA0NDAgNDhWNTg3QzQ4NCA1ODcgNTk2IDU4NCA2NDAgNTg0QzY2OCA1ODQgNjkyIDU4NCA2OTIgNjMyVjY0MEM2OTIgNjcyIDY4NSA2ODggNjQ0IDY4OEg4OEM1MiA2ODggNDAgNjc3IDQwIDY0MFY2MzJDNDAgNTg0IDY0IDU4NCA5MiA1ODRMMjkzIDU4N1onLz4KPC9mb250Pgo8L2RlZnM+CjxzdHlsZSB0eXBlPSd0ZXh0L2Nzcyc+CjwhW0NEQVRBW3RleHQuZjAge2ZvbnQtZmFtaWx5OmNtc3NieDEwO2ZvbnQtc2l6ZToyNC43ODcwNTNweH0KXV0+Cjwvc3R5bGU+CjxnIGlkPSdwYWdlMSc+CjxwYXRoIGQ9J00tNzEuODAwOC00My40NTMxSC00My40NTMxVi03MS44MDA4SC03MS44MDA4WicgZmlsbD0nIzZiNicvPgo8cGF0aCBkPSdNLTcxLjgwMDgtNDMuNDUzMUgtNDMuNDUzMVYtNzEuODAwOEgtNzEuODAwOFonIHN0cm9rZT0nIzAwMCcgZmlsbD0nbm9uZScgc3Ryb2tlLXdpZHRoPScuMzk4NScgc3Ryb2tlLW1pdGVybGltaXQ9JzEwJy8+Cjx0ZXh0IGNsYXNzPSdmMCcgeD0nLTU3LjYyNzU0JyB5PSctNTcuNjI3NTQnIHRyYW5zZm9ybT0nbWF0cml4KDEgMCAwIDEgLTguNzEgOC42MDY3KSc+PHRzcGFuIGZpbGw9JyNmZmYnPlI8L3RzcGFuPjwvdGV4dD4KPHBhdGggZD0nTS00MS4wNjI1LTQzLjQ1MzFILTEyLjcxNDhWLTcxLjgwMDhILTQxLjA2MjVaJyBmaWxsPScjOTk5Jy8+CjxwYXRoIGQ9J00tNDEuMDYyNS00My40NTMxSC0xMi43MTQ4Vi03MS44MDA4SC00MS4wNjI1Wicgc3Ryb2tlPScjMDAwJyBmaWxsPSdub25lJyBzdHJva2Utd2lkdGg9Jy4zOTg1JyBzdHJva2UtbWl0ZXJsaW1pdD0nMTAnLz4KPHRleHQgY2xhc3M9J2YwJyB4PSctNTcuNjI3NTQnIHk9Jy01Ny42Mjc1NCcgdHJhbnNmb3JtPSdtYXRyaXgoMSAwIDAgMSAyMS42NDkxIDguNjA2NyknPjx0c3BhbiBmaWxsPScjZmZmJz5BPC90c3Bhbj48L3RleHQ+CjxwYXRoIGQ9J00tMTAuMzI0Mi00My40NTMxSDE4LjAyMzRWLTcxLjgwMDhILTEwLjMyNDJaJyBmaWxsPScjOTk5Jy8+CjxwYXRoIGQ9J00tMTAuMzI0Mi00My40NTMxSDE4LjAyMzRWLTcxLjgwMDhILTEwLjMyNDJaJyBzdHJva2U9JyMwMDAnIGZpbGw9J25vbmUnIHN0cm9rZS13aWR0aD0nLjM5ODUnIHN0cm9rZS1taXRlcmxpbWl0PScxMCcvPgo8dGV4dCBjbGFzcz0nZjAnIHg9Jy01Ny42Mjc1NCcgeT0nLTU3LjYyNzU0JyB0cmFuc2Zvcm09J21hdHJpeCgxIDAgMCAxIDUyLjM4Njk1IDguNjA2NyknPjx0c3BhbiBmaWxsPScjZmZmJz5UPC90c3Bhbj48L3RleHQ+CjxwYXRoIGQ9J00yMC40MTQxLTQzLjQ1MzFINDguNzU3NVYtNzEuODAwOEgyMC40MTQxWicgZmlsbD0nI2NiNicvPgo8cGF0aCBkPSdNMjAuNDE0MS00My40NTMxSDQ4Ljc1NzVWLTcxLjgwMDhIMjAuNDE0MVonIHN0cm9rZT0nIzAwMCcgZmlsbD0nbm9uZScgc3Ryb2tlLXdpZHRoPScuMzk4NScgc3Ryb2tlLW1pdGVybGltaXQ9JzEwJy8+Cjx0ZXh0IGNsYXNzPSdmMCcgeD0nLTU3LjYyNzU0JyB5PSctNTcuNjI3NTQnIHRyYW5zZm9ybT0nbWF0cml4KDEgMCAwIDEgODQuMjYwOSA4LjYwNjcpJz48dHNwYW4gZmlsbD0nI2ZmZic+RTwvdHNwYW4+PC90ZXh0Pgo8cGF0aCBkPSdNNTEuMTUyNS00My40NTMxSDc5LjQ5NjVWLTcxLjgwMDhINTEuMTUyNVonIGZpbGw9JyM5OTknLz4KPHBhdGggZD0nTTUxLjE1MjUtNDMuNDUzMUg3OS40OTY1Vi03MS44MDA4SDUxLjE1MjVaJyBzdHJva2U9JyMwMDAnIGZpbGw9J25vbmUnIHN0cm9rZS13aWR0aD0nLjM5ODUnIHN0cm9rZS1taXRlcmxpbWl0PScxMCcvPgo8dGV4dCBjbGFzcz0nZjAnIHg9Jy01Ny42Mjc1NCcgeT0nLTU3LjYyNzU0JyB0cmFuc2Zvcm09J21hdHJpeCgxIDAgMCAxIDExNS4zNzc0IDguNjA2NyknPjx0c3BhbiBmaWxsPScjZmZmJz5TPC90c3Bhbj48L3RleHQ+CjwvZz4KPC9zdmc+" class="img-fluid figure-img" style="width:50.0%"></center>
-                            <p>Repeated letters are special, and constitute the core learning objective of this project. Suppose, for example, that the answer is <code>GLASS</code> and the guess is <code>SASSY</code>:</p>
-                            <center><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4KPCEtLSBUaGlzIGZpbGUgd2FzIGdlbmVyYXRlZCBieSBkdmlzdmdtIDMuMS4xIC0tPgo8c3ZnIHZlcnNpb249JzEuMScgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB4bWxuczp4bGluaz0naHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluaycgd2lkdGg9JzE1MS42OTU4cHQnIGhlaWdodD0nMjguNzQ2MnB0JyB2aWV3Qm94PSctNzIuMDAwMDUgLTcyLjAwMDA1IDE1MS42OTU4IDI4Ljc0NjInPgo8ZGVmcz4KPGZvbnQgaWQ9J2Ntc3NieDEwJyBob3Jpei1hZHYteD0nMCc+Cjxmb250LWZhY2UgZm9udC1mYW1pbHk9J2Ntc3NieDEwJyB1bml0cy1wZXItZW09JzEwMDAnIGFzY2VudD0nNzgwJyBkZXNjZW50PScyNTAnLz4KPGdseXBoIHVuaWNvZGU9J0EnIGhvcml6LWFkdi14PSc3MzMnIHZlcnQtYWR2LXk9JzczMycgZ2x5cGgtbmFtZT0nQScgZD0nTTQ3NCA2NTFDNDU5IDY5NCA0MzAgNjk0IDQxMCA2OTRIMzIyQzMwMiA2OTQgMjczIDY5NCAyNTggNjUxTDQ3IDQ3QzQyIDM0IDQyIDMyIDQyIDI3QzQyIDAgNjcgMCA4MSAwSDExN0MxMzUgMCAxNjYgMCAxODAgNDBMMjE5IDE1MUg0OTZMNTMwIDU1QzU0MiAyMCA1NDkgMCA1OTcgMEg2NTFDNjY1IDAgNjkwIDAgNjkwIDI3QzY5MCAzMiA2OTAgMzQgNjg1IDQ3TDQ3NCA2NTFaTTMyMSA0NDlDMzM2IDQ5MyAzNDkgNTMxIDM1NyA1NjdIMzU4QzM2MyA1NDMgMzYzIDU0MSAzNzEgNTE4TDQ2NiAyMzdIMjQ5TDMyMSA0NDlaJy8+CjxnbHlwaCB1bmljb2RlPSdTJyBob3Jpei1hZHYteD0nNjExJyB2ZXJ0LWFkdi15PSc2MTEnIGdseXBoLW5hbWU9J1MnIGQ9J00yNzAgNDQxQzI0OCA0NDYgMTg2IDQ2OSAxODYgNTI2QzE4NiA2MTEgMjcxIDYxMyAzMDUgNjEzQzM2MSA2MTMgNDExIDYwMCA0NjAgNTUyQzQ3NiA1MzcgNDc3IDUzNiA0ODEgNTM2QzQ4NyA1MzYgNDkyIDUzOSA0OTUgNTU0TDUxMCA2NDFDNTEyIDY0OSA1MTIgNjUxIDUxMiA2NTRDNTEyIDY2MiA1MTEgNjYzIDQ4NiA2NzZDNDE1IDcxMSAzNTYgNzE2IDMwNSA3MTZDMjE2IDcxNiA2MSA2OTUgNjEgNTA4QzYxIDQzNyA5OCAzOTEgMTE3IDM3MUMxNjggMzE5IDIxNSAzMDkgMjkzIDI5MUMzNDkgMjc4IDM3MSAyNzMgMzkzIDI1M0M0MDMgMjQzIDQyNCAyMjIgNDI0IDE4NEM0MjQgOTAgMzM4IDg3IDMwNSA4N0MyMjEgODcgMTQ4IDEyMSA5OCAxNjZDODYgMTc4IDg0IDE3OCA4MCAxNzhDNzQgMTc4IDY5IDE3NSA2NiAxNjBMNTEgNzNDNDkgNjUgNDkgNjMgNDkgNjBDNDkgMzkgMTUzIDMgMTU4IDFDMjI1LTIwIDI3OS0yMiAzMDUtMjJDNDU1LTIyIDU0OSA0NSA1NDkgMjAwQzU0OSAzMTIgNDY2IDM5NiAzNjYgNDE5TDI3MCA0NDFaJy8+CjxnbHlwaCB1bmljb2RlPSdZJyBob3Jpei1hZHYteD0nNzMzJyB2ZXJ0LWFkdi15PSc3MzMnIGdseXBoLW5hbWU9J1knIGQ9J002OTkgNjUwQzcwMyA2NTUgNzA4IDY2NCA3MDggNjcxQzcwOCA2OTQgNjg2IDY5NCA2NzIgNjk0SDYyM0M2MDIgNjk0IDU3MSA2OTQgNTQ0IDY1Nkw0NDYgNTE2QzQxMSA0NjYgMzkyIDQzOSAzNzUgNDAzQzM2MCA0MzQgMzQwIDQ2MyAzMjAgNDkxTDIwNyA2NTNDMTg0IDY4NiAxNjIgNjk0IDEyNiA2OTRINjBDNDYgNjk0IDI0IDY5NCAyNCA2NzFDMjQgNjY0IDI3IDY1OSAzMyA2NTFMMjk0IDI3OFY0OEMyOTQgMTIgMzA1IDAgMzQyIDBIMzkwQzQyNSAwIDQzOCAxMCA0MzggNDdWMjc3TDY5OSA2NTBaJy8+CjwvZm9udD4KPC9kZWZzPgo8c3R5bGUgdHlwZT0ndGV4dC9jc3MnPgo8IVtDREFUQVt0ZXh0LmYwIHtmb250LWZhbWlseTpjbXNzYngxMDtmb250LXNpemU6MjQuNzg3MDUzcHh9Cl1dPgo8L3N0eWxlPgo8ZyBpZD0ncGFnZTEnPgo8cGF0aCBkPSdNLTcxLjgwMDgtNDMuNDUzMUgtNDMuNDUzMVYtNzEuODAwOEgtNzEuODAwOFonIGZpbGw9JyNjYjYnLz4KPHBhdGggZD0nTS03MS44MDA4LTQzLjQ1MzFILTQzLjQ1MzFWLTcxLjgwMDhILTcxLjgwMDhaJyBzdHJva2U9JyMwMDAnIGZpbGw9J25vbmUnIHN0cm9rZS13aWR0aD0nLjM5ODUnIHN0cm9rZS1taXRlcmxpbWl0PScxMCcvPgo8dGV4dCBjbGFzcz0nZjAnIHg9Jy01Ny42Mjc1NCcgeT0nLTU3LjYyNzU0JyB0cmFuc2Zvcm09J21hdHJpeCgxIDAgMCAxIC03LjU3NCA4LjYwNjcpJz48dHNwYW4gZmlsbD0nI2ZmZic+UzwvdHNwYW4+PC90ZXh0Pgo8cGF0aCBkPSdNLTQxLjA2MjUtNDMuNDUzMUgtMTIuNzE0OFYtNzEuODAwOEgtNDEuMDYyNVonIGZpbGw9JyNjYjYnLz4KPHBhdGggZD0nTS00MS4wNjI1LTQzLjQ1MzFILTEyLjcxNDhWLTcxLjgwMDhILTQxLjA2MjVaJyBzdHJva2U9JyMwMDAnIGZpbGw9J25vbmUnIHN0cm9rZS13aWR0aD0nLjM5ODUnIHN0cm9rZS1taXRlcmxpbWl0PScxMCcvPgo8dGV4dCBjbGFzcz0nZjAnIHg9Jy01Ny42Mjc1NCcgeT0nLTU3LjYyNzU0JyB0cmFuc2Zvcm09J21hdHJpeCgxIDAgMCAxIDIxLjY0OTEgOC42MDY3KSc+PHRzcGFuIGZpbGw9JyNmZmYnPkE8L3RzcGFuPjwvdGV4dD4KPHBhdGggZD0nTS0xMC4zMjQyLTQzLjQ1MzFIMTguMDIzNFYtNzEuODAwOEgtMTAuMzI0MlonIGZpbGw9JyM5OTknLz4KPHBhdGggZD0nTS0xMC4zMjQyLTQzLjQ1MzFIMTguMDIzNFYtNzEuODAwOEgtMTAuMzI0MlonIHN0cm9rZT0nIzAwMCcgZmlsbD0nbm9uZScgc3Ryb2tlLXdpZHRoPScuMzk4NScgc3Ryb2tlLW1pdGVybGltaXQ9JzEwJy8+Cjx0ZXh0IGNsYXNzPSdmMCcgeD0nLTU3LjYyNzU0JyB5PSctNTcuNjI3NTQnIHRyYW5zZm9ybT0nbWF0cml4KDEgMCAwIDEgNTMuOTAxNzMgOC42MDY3KSc+PHRzcGFuIGZpbGw9JyNmZmYnPlM8L3RzcGFuPjwvdGV4dD4KPHBhdGggZD0nTTIwLjQxNDEtNDMuNDUzMUg0OC43NTc1Vi03MS44MDA4SDIwLjQxNDFaJyBmaWxsPScjNmI2Jy8+CjxwYXRoIGQ9J00yMC40MTQxLTQzLjQ1MzFINDguNzU3NVYtNzEuODAwOEgyMC40MTQxWicgc3Ryb2tlPScjMDAwJyBmaWxsPSdub25lJyBzdHJva2Utd2lkdGg9Jy4zOTg1JyBzdHJva2UtbWl0ZXJsaW1pdD0nMTAnLz4KPHRleHQgY2xhc3M9J2YwJyB4PSctNTcuNjI3NTQnIHk9Jy01Ny42Mjc1NCcgdHJhbnNmb3JtPSdtYXRyaXgoMSAwIDAgMSA4NC42Mzk2IDguNjA2NyknPjx0c3BhbiBmaWxsPScjZmZmJz5TPC90c3Bhbj48L3RleHQ+CjxwYXRoIGQ9J001MS4xNTI1LTQzLjQ1MzFINzkuNDk2NVYtNzEuODAwOEg1MS4xNTI1WicgZmlsbD0nIzk5OScvPgo8cGF0aCBkPSdNNTEuMTUyNS00My40NTMxSDc5LjQ5NjVWLTcxLjgwMDhINTEuMTUyNVonIHN0cm9rZT0nIzAwMCcgZmlsbD0nbm9uZScgc3Ryb2tlLXdpZHRoPScuMzk4NScgc3Ryb2tlLW1pdGVybGltaXQ9JzEwJy8+Cjx0ZXh0IGNsYXNzPSdmMCcgeD0nLTU3LjYyNzU0JyB5PSctNTcuNjI3NTQnIHRyYW5zZm9ybT0nbWF0cml4KDEgMCAwIDEgMTEzLjg2MjcgOC42MDY3KSc+PHRzcGFuIGZpbGw9JyNmZmYnPlk8L3RzcGFuPjwvdGV4dD4KPC9nPgo8L3N2Zz4=" class="img-fluid figure-img" style="width:50.0%"></center>
-                            <p>The green <code>S</code> shows that there is an <code>S</code> in the fourth position, and the yellow <code>S</code> shows that a second <code>S</code> appears somewhere else in the hidden word. The <code>S</code> in the middle of <code>SASSY</code>, however, remains gray because the hidden word does not contain three instances of the letter <code>S</code>.</p>
+                            <p>For example, suppose the inital guessed "row" is <code>AEGIS</code>, the next row is <code>POUTY</code>, and in the current row the guess is <code>ENDER</code>. All these guesses are valid words, but there are no words in the set of valid words that are six letters long and begin with "GUD", so the middle column, well not yet wrong, presents any future possible solution so is colored "PRESENT_COLOR" rather than "CORRECT_COLOR".
+                            <center>
+                                <table style="text-align:center;font-family:sans-serif">
+                                    <tr>
+                                        <td class="c">A</td><td class="c">E</td><td class="p">G</td><td class="c">I</td><td class="c">S</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="c">P</td><td class="c">O</td><td class="p">U</td><td class="c">T</td><td class="c">Y</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u">E</td><td class="u">N</td><td class="p">D</td><td class="u">E</td><td class="u">R</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u"> </td><td class="u"> </td><td class="p"> </td><td class="u"> </td><td class="u"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u"> </td><td class="u"> </td><td class="p"> </td><td class="u"> </td><td class="u"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u"> </td><td class="u"> </td><td class="p"> </td><td class="u"> </td><td class="u"> </td>
+                                    </tr>
+                                </table>
+                            </center>
+                            <p>Since this guess is not accepted, the current row does not change. We can use BACKSPACE or DELETE to remove the word, and guess "ANTER", which is not a valid word, so is colored in "MISSING_COLOR" while all other colors remain the same:</p>
+                                                        <center>
+                                <table style="text-align:center;font-family:sans-serif">
+                                    <tr>
+                                        <td class="c">A</td><td class="c">E</td><td class="p">G</td><td class="c">I</td><td class="c">S</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="c">P</td><td class="c">O</td><td class="p">U</td><td class="c">T</td><td class="c">Y</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="m">A</td><td class="m">N</td><td class="m">T</td><td class="m">E</td><td class="m">R</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u"> </td><td class="u"> </td><td class="p"> </td><td class="u"> </td><td class="u"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u"> </td><td class="u"> </td><td class="p"> </td><td class="u"> </td><td class="u"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u"> </td><td class="u"> </td><td class="p"> </td><td class="u"> </td><td class="u"> </td>
+                                    </tr>
+                                </table>
+                            </center>
+                            <p>Since this guess is not accepted, the current row does not change. We can use BACKSPACE or DELETE to remove the word, and guess "ANTER", which is not a valid word, so is colored in "MISSING_COLOR" while all other colors remain the same:</p>
+                                                        <center>
+                                <table style="text-align:center;font-family:sans-serif">
+                                    <tr>
+                                        <td class="c">A</td><td class="c">E</td><td class="p">G</td><td class="c">I</td><td class="c">S</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="c">P</td><td class="c">O</td><td class="p">U</td><td class="c">T</td><td class="c">Y</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="m">A</td><td class="m">N</td><td class="m">T</td><td class="m">E</td><td class="m">R</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u"> </td><td class="u"> </td><td class="p"> </td><td class="u"> </td><td class="u"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u"> </td><td class="u"> </td><td class="p"> </td><td class="u"> </td><td class="u"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u"> </td><td class="u"> </td><td class="p"> </td><td class="u"> </td><td class="u"> </td>
+                                    </tr>
+                                </table>
+                            </center>
+                            <p>Since this guess is not accepted, the current row does not change. We can use BACKSPACE or DELETE to remove the word, and guess "ANTES", which is a valid word, and creates valid prefixes in all columns, so all guesses are colored "CORRECT_COLOR", the remaining rows are colored "UNKNOWN_COLOR", and we advance to the next row, where we can type e.g. "HI"</p>
+                            <center>
+                                <table style="text-align:center;font-family:sans-serif">
+                                    <tr>
+                                        <td class="c">A</td><td class="c">E</td><td class="c">G</td><td class="c">I</td><td class="c">S</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="c">P</td><td class="c">O</td><td class="c">U</td><td class="c">T</td><td class="c">Y</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="c">A</td><td class="c">N</td><td class="c">T</td><td class="c">E</td><td class="c">S</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u">H</td><td class="u">I</td><td class="u"> </td><td class="u"> </td><td class="u"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u"> </td><td class="u"> </td><td class="u"> </td><td class="u"> </td><td class="u"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="u"> </td><td class="u"> </td><td class="u"> </td><td class="u"> </td><td class="u"> </td>
+                                    </tr>
+                                </table>
+                            </center>
                         </div>
                     </div>
                     <hr>
@@ -195,53 +297,17 @@ if __name__ == "__main__":
                     </div>
                     <hr>
                     <div>
-                        <a id="hide4" href="#hide4" class="hide"><h3>0. Display a Word [Show]</h3></a>
-                        <a id="show4" href="#show4" class="show"><h3>0. Display a Word [Hide]</h3></a>
-                        <div class="details">
-                            <b>Milestone 0: Best By Tuesday</b>
-                            <p><em>This is a familiarization task and will not be part of the final product.</em></p>
-                            <p>Choose a word and display it within the WordleGWindow named <code>gw</code>. You will need to use <code>gw.set_square_letter</code>. You may choose whichever word you like - for example, I will use "AEGIS" because that is my first guess everyday, but you could just as easily use "RATES" or "HELLO" or "ALIEN".
-                            <p>Once you have displayed your word of choice, begin Milestone 1. You are highly encouraged to submit your code at each milestone on Github classroom.
-                            <p><b>Some Notes</b> Though you have no obligation to do so, I wrote functions 
-                            <ul>
-                                <li><code>word_to_row(word, row)</code>, and 
-                                <li><code>word_from_row(row)</code>
-                            </ul>
-                            while working on this milestone that served me well throughout the project.
-                        </div>
-                    </div>
-                    <hr>
-                    <div>
-                        <a id="hideD" href="#hideD" class="hide"><h3>D. Hint: Functions in <code>wordle()</code> [Show]</h3></a>
-                        <a id="showD" href="#showD" class="show"><h3>D. Hint: Functions in <code>wordle()</code> [Hide]</h3></a>
-                        <div class="details">
-                            <p>Like <code>enter_action</code>, I wrote these functions inside the <code>wordle</code> function - they are underneath the <code>def wordle():</code> line and indented to one level, just like <code>def enter_action():</code>. This allows them to refer to <code>gw</code>, a variable that is named within <code>wordle</code> but not outside of it:
-                            <hr><pre style="font-size:larger"><code >def wordle():
-        # The main function to play the Wordle game.
-
-        def enter_action():
-            # What should happen when RETURN/ENTER is pressed.
-            gw.show_message("To do: enter_action")
-            
-        def word_to_row(word, row):
-            gw.show_message("To do: word_to_row")
-            
-        def word_from_row(row):
-            gw.show_message("To do: row_to_word")
-            return "" # placeholder</code></pre>
-                        </div>
-                        <hr>
-                        <a id="hideE" href="#hideE" class="hide"><h3>E. Hint: Capitalization [Show]</h3></a>
-                        <a id="showE" href="#showE" class="show"><h3>E. Hint: Capitalization [Hide]</h3></a>
+                        <a id="hideE" href="#hideE" class="hide"><h3>D. Hint: Capitalization [Show]</h3></a>
+                        <a id="showE" href="#showE" class="show"><h3>D. Hint: Capitalization [Hide]</h3></a>
                         <div class="details">
                             <p> Be advised, words from <code>ENGLISH_WORDS</code> are all (ironically) lower-case and all displayed letters in Wordle are capitalized (upper-case). You don't need to work with ENGLISH_WORDS yet but I recommend doing something like the following:
                             <hr><pre style="font-size:larger"><code ># to see if a word is in ENGLISH_WORDS, make it lower case.
 guess_str = "Hello"
 guess_low = guess_str.lower()
 guess_cap = guess_str.upper()
-print(guess_str, guess_str in ENGLISH_WORDS) # Hello False
-print(guess_low, guess_low in ENGLISH_WORDS) # hello True
-print(guess_cap, guess_cap in ENGLISH_WORDS) # HELLO False
+print(guess_str, guess_str in FIVES) # Hello False
+print(guess_low, guess_low in FIVES) # hello True
+print(guess_cap, guess_cap in FIVES) # HELLO False
 
 # places 'H' in the upper left
 gw.set_square_letter(0,0,guess_cap[0])</code></pre><hr>
@@ -253,171 +319,76 @@ GUESS = Guess.upper()</code></pre>
                     </div>
                     <hr>
                     <div>
-                        <a id="hide5" href="#hide5" class="hide"><h3>1. Check Guess Validity [Show]</h3></a>
-                        <a id="show5" href="#show5" class="show"><h3>1. Check Guess Validity [Hide]</h3></a>
+                        <a id="hide5" href="#hide5" class="hide"><h3>0. Check Guess Validity [Show]</h3></a>
+                        <a id="show5" href="#show5" class="show"><h3>0. Check Guess Validity [Hide]</h3></a>
                         <div class="details">
-                            <b>Milestone 1: Best By Wednesday</b>
-                            <p><em>This task writes the first part of the <code>enter_action</code> function.</em></p>
-                            <p>The provided "Wordle.py" allows typing in a guess but does nothing when <code>ENTER</code> is pressed. For this milestone, we will add code to the <code>enter_action</code> function such that:
+                            <b>Milestone 0: 40 points.</b>
+                            <p><em>This task updates the <code>enter_action</code> function and optionally implements the <code>row_word</code> and <code>row_color</code> functions.</em></p>
+                            <p>The provided "Mini.py" allows typing in a guess but does nothing when <code>ENTER</code> is pressed. For this milestone, we will add code to the <code>enter_action</code> function such that:
                             <ul>
-                                <li>If the entered word is in <code>ENGLISH_WORDS</code>, then:
+                                <li>If the entered word is in <code>FIVES</code>, then:
                                 <ul>
-                                    <li><code>gw.show_message(affirmation) # affirmation of your choice</code>
+                                    <li><code>gw.show_message("First try!") # affirmation of your choice</code>
+                                    <li>Set the color of every square in the color to "CORRECT_COLOR".
                                 </ul>
                                 <li>else:
                                 <ul>
-                                    <li><code>gw.show_message("Not in word list")</code>
+                                    <li><code>gw.show_message("Honk honk, I am a silly goose.") # negation of your choice</code>
+                                    <li>Set the color of every square in the color to "MISSING_COLOR".
                                 </ul>
                             </ul>
-                            <p>Once your "Wordle.py" can assess guessed words in this manner, begin Milestone 2.  You are highly encouraged to submit your code at each milestone on Github classroom.
+                            <p>Once your "Wordle.py" can assess guessed words in this manner, begin Milestone 2.
                         </div>
                     </div>
                     <hr>
                     <div>
-                        <a id="hide6" href="#hide6" class="hide"><h3>2. Color Letters [Show]</h3></a>
-                        <a id="show6" href="#show6" class="show"><h3>2. Color Letters [Hide]</h3></a>
+                        <a id="hide6" href="#hide6" class="hide"><h3>2. Check Prefixes [Show]</h3></a>
+                        <a id="show6" href="#show6" class="show"><h3>2. Check Prefixes [Hide]</h3></a>
                         <div class="details">
-                            <b>Milestone 2: Best By Thursday</b>
-                            <p><em>This task writes the next part of the <code>enter_action</code> function.</em></p>
-                            <p>This is the core problem-solving part of this assignment, in that it involves thinking about and writing down a solution to particular, challenging problem: determining what color to assign to each letter.
-                            <p>As a recommended strategy, you could
+                            <b>Milestone 2: 60 points</b>
+                            <p><em>This task writes the next part of the <code>enter_action</code> function and optionally implements the <code>col_word</code>, <code>col_color</code> and <code>valid_prefix</code> functions.</em></p>
+                            <p>Once a guessed word is known to be within <code>FIVES</code>, it may still be an invalid guess if it causes there to be no valid six letter words that can form a column.</p>
                             <ul>
-                                <li>Find and color the correct (green) letters first
+                                <li>For each column:</li>
                                 <ul>
-                                    <li>Avoid coloring a letter yellow if it is in the correct position.
-                                    <li>Track if there's double letters - maintain a string of remaining letters, perhaps.
-                                </ul>
-                                <li>Find and color the present (yellow) letters next.
-                                <ul>
-                                    <li>Track if there's double letters - maintain a string of remaining letters, perhaps.
-                                </ul>
-                                <li>Color remaining letters gray.
-                                <li>Test your code rigorously:
-                                <ul>
-                                    <li>Use the <code>guess = "Sassy"</code> and <code>answer = "Glass"</code> example.
-                                </ul>
-                            </ul>
-                            <p>Personally, I wrote a function <code>color_row(row:int, answer:str)</code> that, given a row and an answer, colors the letters in that row approriately.
-                            <p>Once "Wordle.py" may color a guess based on some provided answer, begin Milestone 3.  You are highly encouraged to submit your code at each milestone on Github classroom.
-                            <p><b>Some Notes</b> The following would place an "H" in the upper left and color the "H" green, as if the guess was "Hello" and the answer was "Hasty".
-                            <hr><pre style="font-size:larger"><code >answr_str = "Hasty" # you set this "manually" in Wordle.py
-guess_str = "Hello" # ideally get this via "word_from_row"
-guess_cap = guess_str.upper()
-gw.set_square_letter(0,0,guess_cap[0])
-gw.set_square_color(0,0,CORRECT_COLOR)</code></pre><hr>
-                            <p>We provide the following colors, that you may use due to the <code>from WordleGraphics import *</code> line in Wordle.py including them, much like using <code>move()</code> after <code>import karel</code>.
-                            <table style="width: 100%">
-                            <thead>
-                            <tr>
-                            <th style="width: 50%">Color</th>
-                            <th style="width: 50%">Description</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr     >
-                            <td><code>CORRECT_COLOR</code></td>
-                            <td>A shade of green</td>
-                            </tr>
-                            <tr     >
-                            <td><code>PRESENT_COLOR</code></td>
-                            <td>A shade of brownish yellow</td>
-                            </tr>
-                            <tr     >
-                            <td><code>MISSING_COLOR</code></td>
-                            <td>A shade of gray</td>
-                            </tr>
-                            <tr     >
-                            <td><code>UNKNOWN_COLOR</code></td>
-                            <td>Initial white color</td>
-                            </tr>
-                            </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <hr>
-                    <div>
-                        <a id="hide7" href="#hide7" class="hide"><h3>3. Random Word [Show]</h3></a>
-                        <a id="show7" href="#show7" class="show"><h3>3. Random Word [Hide]</h3></a>
-                        <div class="details">
-                            <b>Milestone 3: Best By Friday</b>
-                            <p><em>This tasks implements answer word selection</em></p>
-                            <p>For this task, we introduce some useful functions provided by <code>import random</code>.
-                            <p>For this task:
-                            <ul>
-                                <li>Generate a random 5-letter word.
-                                <ul>
-                                    <li>Use something from <code>import random</code> - examples below.
-                                </ul>
-                                <li>Hold this word in a variable, such as <code>answr_str</code> or whatever worked for you.
-                                <li>Evaluate a guess against this answer.
-                                <li>Test your code more than once to ensure the word changes.
-                                <ul>
-                                    <li>You may wish to share the answer via a <code>gw.show_message()</code> while you are testing.
-                                </ul>
-                            </ul>
-                            <p>Personally, I wrote a new function, <code>random_five_letter_word()</code>.
-                            <p>Once "Wordle.py" may color a guess based on a random answer, begin Milestone 4.  You are highly encouraged to submit your code at each milestone on Github classroom.
-                            <p><b>Some Notes</b> The following takes <code>ENGLISH_WORDS</code>, which is alphabetical order, and causes it to be in a random order from then on. It could, for example, be part of <code>random_five_letter_word</code>.
-                            <hr><pre style="font-size:larger"><code >random.shuffle(ENGLISH_WORDS) # de-alphabetizes
-for word in ENGLISH_WORDS:
-    print(word) # prints words in a random order</code></pre>
-                        </div>
-                    </div>
-                    <hr>
-                    <div>
-                        <a id="hide8" href="#hide8" class="hide"><h3>4. Change Rows [Show]</h3></a>
-                        <a id="show8" href="#show8" class="show"><h3>4. Change Rows [Hide]</h3></a>
-                        <div class="details">
-                            <b>Milestone 4: Best By Saturday</b>
-                            <p><em>This tasks implements game progress.</em></p>
-                            <p>For this task:
-                            <ul>
-                                <li>After a guess, move to the next row.
-                                <ul>
-                                    <li>Use <code>gw.set_current_row(row_idx)</code> and <code>gw.get_current_row()</code>.
-                                </ul>
-                                <li>If the guess is equal to the answer:
-                                <ul>
-                                    <li>Say something nice via <code>gw.show_message()</code>
-                                    <li>Stop reading new guess via <code>gw.set_current_row(N_ROWS)</code>.
+                                    <li>Extract the one to five letters, reading horizontal downward along the column.</li>
+                                    <li>Check to see if there is a word in <code>SIXES</code> which begins with these letters.</li>
                                     <ul>
-                                        <li><code>N_ROWS</code> is included via <code>from WordleGraphics import *</code>
+                                        <li>If so, take no further action.</li>
+                                        <li>If not, color the entire column "PRESENT_COLOR"</li>
                                     </ul>
-                                </ul>
-                                <li>If the current row number is equal to <code>N_ROWS</code> without a successful guess...
-                                <ul>
-                                    <li>Share the answer via a <code>gw.show_message()</code>.
+                                    <li>If no columns were colored "PRESENT_COLOR" - that is, all columns contain a valid prefix:
+                                        <ul>
+                                            <li>Color all guesses "CORRECT_COLOR",
+                                            <li>Color all remaining rows "UNKNOWN_COLOR", and
+                                            <li>Advance to the next row.
+                                        </ul>
+                                    <li>This coloring is intend to overwrite any previous "PRESENT_COLOR" coloring.</li>
                                 </ul>
                             </ul>
-                            <p>Once "Wordle.py" may color a guess based on a random answer, begin Milestone 5.  You are highly encouraged to submit your code at each milestone on Github classroom.
                         </div>
                     </div>
                     <hr>
                     <div>
-                        <a id="hide9" href="#hide9" class="hide"><h3>5. Color Keys [Show]</h3></a>
-                        <a id="show9" href="#show9" class="show"><h3>5. Color Keys [Hide]</h3></a>
+                        <a id="hide7" href="#hide7" class="hide"><h3>3. Finish Game [Show]</h3></a>
+                        <a id="show7" href="#show7" class="show"><h3>3. Finish Game [Hide]</h3></a>
                         <div class="details">
-                            <b>Milestone 5: Best By Sunday</b>
-                            <p><em>This tasks implements a nicety.</em></p>
-                            <p>For this task, when evaluating a guess:
+                            <b>Milestone 3: Up to 20 points extra credit</b>
+                            <p><em>This tasks finishes <code>enter_action</code>.</em></p>
+                            <p>Once guess handling is finalized, you may conclude the game in the manner of your choice. For 20 points extra credit, you can do what I did:
+                            <p>When the current row is the final row:
                             <ul>
-                                <li>If a letter is in the correct position:
+                                <li>Check a guessed word for validity.
                                 <ul>
-                                    <li>Use <code>gw.set_key_color</code> to color the corresponding key to <code>CORRECT_COLOR</code>
+                                    <li>If not valid, color row in "MISSING_COLOR" and terminate the game with a loss a la Wordle.
                                 </ul>
-                                <li>If a letter is present:
+                                <li>Check each column for validity</li>
                                 <ul>
-                                    <li>If the letter has not yet been guessed in the correct position:
-                                    <ul>
-                                        <li>Use <code>gw.set_key_color</code> to color the corresponding key to <code>PRESENT_COLOR</code>
-                                    </ul>
+                                    <li>If any column "word" is not a word in <code>SIXES</code>, color column in "MISSING_COLOR" and terminate the game with a loss a la Wordle.</li>
+                                    <li>You may optimal check every column, even after finding an incorrect column.</li>
                                 </ul>
-                                <li>If a letter is not present:
-                                <ul>
-                                    <li>Use <code>gw.set_key_color</code> to color the corresponding key to <code>MISSING_COLOR</code>
-                                </ul>
+                                <li>Otherwise, color the full grid in "CORRECT_COLOR", show an appropriately complimentary message, and terminate the game with a win.</li>
                             </ul>
-                            <p>Once you have completed Milestone 5, submit your code via Github classroom. You will probably want to test a bit more, and also consider doing extensions, which are outline by Prof. Jed Rembold <a href="https://jrembold.github.io/Website_Backup/class_files/cs151/Projects/Project_Wordle/extensions.html">here</a>
                         </div>
                     </div>
                     <hr>
